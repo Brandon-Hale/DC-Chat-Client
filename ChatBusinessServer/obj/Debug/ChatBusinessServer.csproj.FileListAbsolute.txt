@@ -1,0 +1,14 @@
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatBusinessServer.exe.config
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatBusinessServer.exe
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatBusinessServer.pdb
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatDatabaseServer.exe
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\bin\Debug\DLL.dll
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatDatabaseServer.pdb
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatDatabaseServer.exe.config
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\bin\Debug\DLL.pdb
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.AssemblyReference.cache
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.SuggestedBindingRedirects.cache
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.CoreCompileInputs.cache
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.CopyComplete
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.exe
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.pdb

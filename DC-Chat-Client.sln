@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLL", "DLL\DLL.csproj", "{F07B77C1-1C39-4CE3-8159-0160A447C934}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatClient", "ChatClient\ChatClient.csproj", "{04717169-FEBC-41B2-94C0-75314C4046DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatDatabaseServer", "ChatDatabaseServer\ChatDatabaseServer.csproj", "{8B45B6EC-5B8A-49D1-A9DC-976E5B68B96C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatBusinessServer", "ChatBusinessServer\ChatBusinessServer.csproj", "{7C2007E5-190C-42CB-A7EB-C3978985EE03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F07B77C1-1C39-4CE3-8159-0160A447C934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F07B77C1-1C39-4CE3-8159-0160A447C934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F07B77C1-1C39-4CE3-8159-0160A447C934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F07B77C1-1C39-4CE3-8159-0160A447C934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04717169-FEBC-41B2-94C0-75314C4046DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04717169-FEBC-41B2-94C0-75314C4046DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04717169-FEBC-41B2-94C0-75314C4046DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04717169-FEBC-41B2-94C0-75314C4046DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B45B6EC-5B8A-49D1-A9DC-976E5B68B96C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B45B6EC-5B8A-49D1-A9DC-976E5B68B96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B45B6EC-5B8A-49D1-A9DC-976E5B68B96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B45B6EC-5B8A-49D1-A9DC-976E5B68B96C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C2007E5-190C-42CB-A7EB-C3978985EE03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C2007E5-190C-42CB-A7EB-C3978985EE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C2007E5-190C-42CB-A7EB-C3978985EE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C2007E5-190C-42CB-A7EB-C3978985EE03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B656E3DB-1C45-45F8-B12E-F2845384481F}
+	EndGlobalSection
+EndGlobal

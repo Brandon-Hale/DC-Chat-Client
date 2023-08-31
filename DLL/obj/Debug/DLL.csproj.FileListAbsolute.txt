@@ -1,0 +1,6 @@
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\DLL\bin\Debug\DLL.dll
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\DLL\bin\Debug\DLL.pdb
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\DLL\obj\Debug\DLL.csproj.AssemblyReference.cache
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\DLL\obj\Debug\DLL.csproj.CoreCompileInputs.cache
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\DLL\obj\Debug\DLL.dll
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Client\DC-Chat-Client\DLL\obj\Debug\DLL.pdb
