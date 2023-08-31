@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
 using DLL;
+using System.Configuration;
 
 namespace ChatDatabaseServer
 {
@@ -12,12 +13,20 @@ namespace ChatDatabaseServer
     public interface DatabaseInterface
     {
         [OperationContract]
-        ChatRoom GetMessages(string sentMessage);
+        void AddMessage(string sentMessage);
+
+        [OperationContract]
+        ChatRoom GetMessages();
 
         [OperationContract]
         string PrintMessages();
 
         [OperationContract]
         List<User> GetUsers();
+
+        [OperationContract]
+        void AddUser(string username);
+
+
     }
 }

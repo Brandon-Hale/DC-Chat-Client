@@ -26,7 +26,6 @@ namespace DLL
         {
             string info = username;
 
-
             return info;
         }
     }

@@ -36,12 +36,18 @@ namespace ChatBusinessServer
             Console.WriteLine(logMessage);
         }
 
-        public ChatRoom GetMessages(string sentMessage)
+        public void AddMessage(string sentMessage)
         {
             Log($"GetMessages Called with string: {sentMessage}");
-            foob.GetMessages(sentMessage);
 
-            return room;
+            foob.AddMessage(sentMessage);
+        }
+
+        public ChatRoom GetMessages()
+        {
+            Log($"GetMessages Called:");
+
+            return foob.GetMessages();
         }
         public string PrintMessages()
         {
@@ -54,6 +60,11 @@ namespace ChatBusinessServer
         {
             Log("Get Users Called:");
             return foob.GetUsers();
+        }
+
+        public void AddUser(string username)
+        {
+            foob.AddUser(username);
         }
     }
 }

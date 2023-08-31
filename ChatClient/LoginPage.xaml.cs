@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DLL;
+using System.Threading;
 
 namespace ChatClient
 {
@@ -24,6 +25,7 @@ namespace ChatClient
     public partial class LoginPage : Page
     {
         private ChatBusinessInterface foob;
+        private List<User> users = new List<User>();
         public LoginPage()
         {
             InitializeComponent();
@@ -39,18 +41,26 @@ namespace ChatClient
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = userName.Text.ToString();
-            foob.GetUsers();
+            users = foob.GetUsers();
+            Boolean loginSuccess = true;
 
-            if (username.Equals(foob.GetUsers()))
+                foreach (User user in users)
+                {
+
+                    if (username.Equals(user.Username.ToString()))
+                    {
+                        userNameStatus.Text = "Invalid Username: Already Taken";
+                        loginSuccess = false;
+                        break;
+                    }
+                }
+
+            if (loginSuccess)
             {
-                userNameStatus.Text = "Invalid Username: Already Taken";
-            }
-            else
-            {
+                foob.AddUser(username);
+                userNameStatus.Text = "Login Success: Welcome!";
                 NavigationService.Navigate(new ChatRoomSelection());
             }
-
-           
         }
     }
 }

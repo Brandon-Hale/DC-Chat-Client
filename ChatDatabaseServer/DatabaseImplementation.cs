@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using DLL;
 using System.ServiceModel.Configuration;
 using System.Configuration;
+using Microsoft.SqlServer.Server;
 
 namespace ChatDatabaseServer
 {
@@ -16,27 +17,35 @@ namespace ChatDatabaseServer
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, UseSynchronizationContext = false)]
     public class DatabaseImplementation : DatabaseInterface
     {
-        private ChatRoom room;
+        private ChatRoom room = new ChatRoom();
         private User user;
         private List<ChatRoom> roomList = new List<ChatRoom>();
         private List<User> users = new List<User>();
 
-        public List<User> GetUsers()
+        public void AddUser(string username)
         {
             user = new User();
 
-            string username = user.Username;
+            user.Username = username;
             users.Add(user);
+        }
 
+        public List<User> GetUsers()
+        {
             return users;
         }
 
-        public ChatRoom GetMessages(string sentMessage)
+        public void AddMessage(string sentMessage)
         {
-            room = new ChatRoom();
-            Message newMessage = new Message { MessageText = sentMessage };
-            room.Messages.Add(newMessage);
 
+            DateTime currentDate = DateTime.Now;
+            string formattedDate = currentDate.ToString("HH:mm:ss");
+            Message newMessage = new Message { MessageText = (formattedDate + ": " + sentMessage) };
+            room.Messages.Add(newMessage);
+        }
+
+        public ChatRoom GetMessages()
+        {
             return room;
         }
 
