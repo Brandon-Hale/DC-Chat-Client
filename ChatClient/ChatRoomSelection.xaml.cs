@@ -41,7 +41,10 @@ namespace ChatClient
         }
         private void addChatRoomButton_Click(object sender, RoutedEventArgs e)
         {
+            string newChatRoomName = "";
 
+
+            foob.AddChatRoom(newChatRoomName);
         }
 
         private void joinChatRoom1_Click(object sender, RoutedEventArgs e)

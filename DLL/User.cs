@@ -10,6 +10,7 @@ namespace DLL
     public class User
     {
         private string username;
+        private List<Message> messages = new List<Message>();
 
         public User()
         {
@@ -20,6 +21,12 @@ namespace DLL
         {
             get { return username; }
             set { username = value; }
+        }
+
+        public List<Message> Messages 
+        { 
+            get { return messages; } 
+            set { messages = value; }
         }
 
         public string toString()
