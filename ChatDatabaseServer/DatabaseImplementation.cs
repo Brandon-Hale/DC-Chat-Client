@@ -10,6 +10,8 @@ using DLL;
 using System.ServiceModel.Configuration;
 using System.Configuration;
 using Microsoft.SqlServer.Server;
+using System.Runtime.CompilerServices;
+using System.Reflection.Emit;
 
 namespace ChatDatabaseServer
 {
@@ -17,17 +19,39 @@ namespace ChatDatabaseServer
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, UseSynchronizationContext = false)]
     public class DatabaseImplementation : DatabaseInterface
     {
-        private ChatRoom room = new ChatRoom();
-        private User user;
-        private List<ChatRoom> roomList = new List<ChatRoom>();
-        private List<User> users = new List<User>();
+        ChatRoom room;
+        private static List<ChatRoom> roomList = new List<ChatRoom>();
+        private static List<User> users = new List<User>();
 
-        public void AddUser(string username)
+        //stuff for Users
+        public Boolean DuplicateUser(string username)
         {
-            user = new User();
+            foreach (User user in users)
+            {
+                if (user.Username.Equals(username))
+                {
+                    return true;
+                }
+            }
+            return false;
 
-            user.Username = username;
-            users.Add(user);
+        }
+
+        public Boolean AddUser(string username)
+        {
+            Boolean userAdded = false;
+            if (DuplicateUser(username))
+            {
+                userAdded = false;
+            }
+            else
+            {
+                User user = new User();
+                user.Username = username;
+                users.Add(user);
+                userAdded = true;
+            }
+            return userAdded;
         }
 
         public List<User> GetUsers()
@@ -35,29 +59,54 @@ namespace ChatDatabaseServer
             return users;
         }
 
-        public void AddMessage(string sentMessage)
-        {
 
+        //stuff for chat Rooms
+        public void AddChatRoom(string chatRoomName)
+        {
+            ChatRoom chatRoom = new ChatRoom();
+            chatRoom.RoomName = chatRoomName;
+            roomList.Add(chatRoom);
+        }
+        public void AddMessage(string sentMessage, string chatRoomName)
+        {
+            room = GetChatRoom(chatRoomName);
             DateTime currentDate = DateTime.Now;
             string formattedDate = currentDate.ToString("HH:mm:ss");
             Message newMessage = new Message { MessageText = (formattedDate + ": " + sentMessage) };
             room.Messages.Add(newMessage);
         }
 
-        public ChatRoom GetMessages()
-        {
-            return room;
-        }
-
-        public string PrintMessages() //need to have time: user: message
+        public string PrintMessages(string chatRoomName) //need to have time: user: message
         {
             string messageLog = "";
-            foreach(var message in room.Messages)
+            ChatRoom chatRoom = GetChatRoom(chatRoomName);
+            chatRoom.Messages = GetMessages(chatRoomName);
+
+            foreach (var message in chatRoom.Messages)
             {
                 messageLog += message.MessageText.ToString() + "\n";
             }
 
             return messageLog;
+        }
+        public ChatRoom GetChatRoom(string chatRoomName)
+        {
+            foreach (ChatRoom chatRoom in roomList)
+            {
+                if (chatRoomName.Equals(chatRoom.RoomName.ToString()))
+                {
+                    return chatRoom;
+                }
+            }
+            return null;
+        }
+
+        public List<Message> GetMessages(string chatRoomName)
+        {
+            ChatRoom chatRoom = GetChatRoom(chatRoomName);
+            List<Message> messages = chatRoom.Messages;
+
+            return messages;
         }
     }
 }

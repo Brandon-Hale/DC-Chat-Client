@@ -25,7 +25,6 @@ namespace ChatClient
     public partial class LoginPage : Page
     {
         private ChatBusinessInterface foob;
-        private List<User> users = new List<User>();
         public LoginPage()
         {
             InitializeComponent();
@@ -38,28 +37,20 @@ namespace ChatClient
             foob = foobFactory.CreateChannel();
         }
 
-        private void loginButton_Click(object sender, RoutedEventArgs e)
+        private async void loginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = userName.Text.ToString();
-            users = foob.GetUsers();
-            Boolean loginSuccess = true;
 
-                foreach (User user in users)
-                {
+            Boolean userSuccess = await Task.Run(() => foob.AddUser(username));
 
-                    if (username.Equals(user.Username.ToString()))
-                    {
-                        userNameStatus.Text = "Invalid Username: Already Taken";
-                        loginSuccess = false;
-                        break;
-                    }
-                }
-
-            if (loginSuccess)
+            if (userSuccess)
             {
-                foob.AddUser(username);
                 userNameStatus.Text = "Login Success: Welcome!";
                 NavigationService.Navigate(new ChatRoomSelection());
+            }
+            else
+            {
+                userNameStatus.Text = "Invalid Name: Taken Already";
             }
         }
     }

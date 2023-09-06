@@ -15,7 +15,6 @@ namespace ChatBusinessServer
     {
         private DatabaseInterface foob;
         private uint LogNumber = 0;
-        private ChatRoom room = new ChatRoom();
 
         public ChatBusinessImplementation()
         {
@@ -36,35 +35,57 @@ namespace ChatBusinessServer
             Console.WriteLine(logMessage);
         }
 
-        public void AddMessage(string sentMessage)
-        {
-            Log($"GetMessages Called with string: {sentMessage}");
-
-            foob.AddMessage(sentMessage);
-        }
-
-        public ChatRoom GetMessages()
-        {
-            Log($"GetMessages Called:");
-
-            return foob.GetMessages();
-        }
-        public string PrintMessages()
-        {
-            Log("PrintMessages Called:");
-
-            return foob.PrintMessages();
-        }
-
+        //user stuff
         public List<User> GetUsers()
         {
             Log("Get Users Called:");
             return foob.GetUsers();
         }
 
-        public void AddUser(string username)
+        public Boolean AddUser(string username)
         {
-            foob.AddUser(username);
+            Log($"AddUser Called with string: {username}");
+            return foob.AddUser(username);
+        }
+
+        public Boolean DuplicateUser(string username)
+        {
+            Log($"DuplicateUser Called with string: {username}");
+            return foob.DuplicateUser(username);
+        }
+
+
+        //chat stuff
+        public void AddMessage(string sentMessage, string chatRoomName)
+        {
+            Log($"GetMessages Called with string: {sentMessage}");
+
+            foob.AddMessage(sentMessage, chatRoomName);
+        }
+
+        public List<Message> GetMessages(string chatRoomName)
+        {
+            Log($"GetMessages Called:");
+
+            return foob.GetMessages(chatRoomName);
+        }
+        public string PrintMessages(string chatRoomName)
+        {
+            Log("PrintMessages Called:");
+
+            return foob.PrintMessages(chatRoomName);
+        }
+
+        public ChatRoom GetChatRoom(string chatRoomName) 
+        {
+            Log($"GetChatRoom Called with string: {chatRoomName}");
+            return foob.GetChatRoom(chatRoomName);
+        }
+
+        public void AddChatRoom(string chatRoomName)
+        {
+            Log($"AddChatRoom Called with string: {chatRoomName}");
+            foob.AddChatRoom(chatRoomName);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace ChatClient
 
             string URL = "net.tcp://localhost:8200/BusinessService";
             foobFactory = new ChannelFactory<ChatBusinessInterface>(tcp, URL);
-            foob = foobFactory.CreateChannel();
+            foob = foobFactory.CreateChannel();  
         }
     }
 }

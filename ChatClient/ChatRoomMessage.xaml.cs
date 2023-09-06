@@ -24,7 +24,6 @@ namespace ChatClient
     public partial class ChatRoomMessage : Page
     {
         private ChatBusinessInterface foob;
-        private ChatRoom room = new ChatRoom();
         public ChatRoomMessage()
         {
             InitializeComponent();
@@ -41,11 +40,14 @@ namespace ChatClient
             NavigationService.GoBack();
         }
 
-        private void SendButton_Click(object sender, RoutedEventArgs e)
+        private async void SendButton_Click(object sender, RoutedEventArgs e)
         {
             string sentMessage = MessageBox.Text.ToString();
-            foob.AddMessage(sentMessage);
-            ChatBox.Text = foob.PrintMessages();
+
+            await Task.Run(() => foob.AddMessage(sentMessage, "ChatRoom1"));
+            string chatMessages = await Task.Run(() => foob.PrintMessages("ChatRoom1"));
+
+            ChatBox.Text = chatMessages;
             ChatBox.Visibility = Visibility.Visible;
         }
     }

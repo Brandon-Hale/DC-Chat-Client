@@ -13,19 +13,27 @@ namespace ChatDatabaseServer
     public interface DatabaseInterface
     {
         [OperationContract]
-        void AddMessage(string sentMessage);
-
-        [OperationContract]
-        ChatRoom GetMessages();
-
-        [OperationContract]
-        string PrintMessages();
-
-        [OperationContract]
         List<User> GetUsers();
 
         [OperationContract]
-        void AddUser(string username);
+        Boolean AddUser(string username);
+        [OperationContract]
+        Boolean DuplicateUser(string username);
+
+        //chatRoom
+        [OperationContract]
+        void AddMessage(string sentMessage, string chatRoomName);
+
+        [OperationContract]
+        List<Message> GetMessages(string chatRoomName);
+
+        [OperationContract]
+        string PrintMessages(string chatRoomName);
+
+        [OperationContract]
+        ChatRoom GetChatRoom(string chatRoomName);
+        [OperationContract]
+        void AddChatRoom(string chatRoomName);
 
 
     }

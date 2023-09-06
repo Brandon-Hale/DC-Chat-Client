@@ -11,20 +11,29 @@ namespace ChatBusinessServer
     [ServiceContract]
     public interface ChatBusinessInterface
     {
-        [OperationContract]
-        void AddMessage(string message);
-
-        [OperationContract]
-        ChatRoom GetMessages();
-
-        [OperationContract]
-        string PrintMessages();
-
+        //user stuff
         [OperationContract]
         List<User> GetUsers();
 
         [OperationContract]
-        void AddUser(string username);
+        Boolean AddUser(string username);
+        [OperationContract]
+        Boolean DuplicateUser(string username);
+
+        //chatRoom
+        [OperationContract]
+        void AddMessage(string sentMessage, string chatRoomName);
+
+        [OperationContract]
+        List<Message> GetMessages(string chatRoomName);
+
+        [OperationContract]
+        string PrintMessages(string chatRoomName);
+
+        [OperationContract]
+        ChatRoom GetChatRoom(string chatRoomName);
+        [OperationContract]
+        void AddChatRoom(string chatRoomName);
 
     }
 }
