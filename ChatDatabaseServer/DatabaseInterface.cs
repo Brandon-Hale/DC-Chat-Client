@@ -22,7 +22,7 @@ namespace ChatDatabaseServer
 
         //chatRoom
         [OperationContract]
-        void AddMessage(string sentMessage, string chatRoomName);
+        void AddMessage(string sentMessage, string chatRoomName, string username);
 
         [OperationContract]
         List<Message> GetMessages(string chatRoomName);

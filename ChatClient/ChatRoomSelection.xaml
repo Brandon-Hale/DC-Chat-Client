@@ -28,6 +28,11 @@
             <Button Name="joinChatRoom3" Content="Join" Click="joinChatRoom3_Click" Width="80" Height="30"/>
         </StackPanel>
 
+        <StackPanel Name="newChatStack" Margin="395,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock Name="newChatRoom" Text="Hi" FontSize="18"/>
+            <Button Name="joinNewChatRoom" Content="Join" Click="joinNewChatRoom_Click" Width="80" Height="30"/>
+        </StackPanel>
+
         <!-- Add Chat Room Button -->
         <Button Name="backButton" Content="Go Back" HorizontalAlignment="Left" Margin="10,405,0,0" VerticalAlignment="Top" Height="35" Width="70" Click="backButton_Click"/>
         <Button Name="addChatRoomButton" Content="Add Chat Room" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,405,0,0" Width="120" Height="35" Click="addChatRoomButton_Click"/>

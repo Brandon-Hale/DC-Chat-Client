@@ -27,8 +27,11 @@ namespace ChatClient
     {
 
         private ChatBusinessInterface foob;
-        string chatRoomName;
-        public ChatRoomMessage(string chatRoomName)
+        private string chatRoomName;
+        private string username;
+        private Timer updateTimer;
+
+        public ChatRoomMessage(string chatRoomName, string username)
         {
             InitializeComponent();
 
@@ -40,6 +43,25 @@ namespace ChatClient
             foob = foobFactory.CreateChannel();
 
             this.chatRoomName = chatRoomName;
+            this.username = username;
+            updateTimer = new Timer(UpdateCallback, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+        }
+
+        private void UpdateCallback(object state) //update GUI texts quickly
+        {
+            try
+            {
+                string chatMessages = foob.PrintMessages(chatRoomName);
+
+                Dispatcher.Invoke(() =>
+                {
+                    ChatBox.Text = chatMessages;
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
@@ -49,10 +71,10 @@ namespace ChatClient
 
         private async void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            //working for 1 chatROom currently can talk throughout
+            //working for all created chatrooms
             string sentMessage = MessageBox.Text.ToString();
 
-            await Task.Run(() => foob.AddMessage(sentMessage, chatRoomName));
+            await Task.Run(() => foob.AddMessage(sentMessage, chatRoomName, username));
             string chatMessages = await Task.Run(() => foob.PrintMessages(chatRoomName));
 
             ChatBox.Text = chatMessages;

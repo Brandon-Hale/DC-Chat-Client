@@ -60,3 +60,5 @@ C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Cl
 C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatClient\obj\Debug\ChatClient.csproj.CopyComplete
 C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatClient\obj\Debug\ChatClient1.exe
 C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatClient\obj\Debug\ChatClient1.pdb
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatClient\obj\Debug\ChatRoomCreationWindow.g.cs
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatClient\obj\Debug\ChatRoomCreationWindow.baml
