@@ -67,12 +67,12 @@ namespace ChatDatabaseServer
             chatRoom.RoomName = chatRoomName;
             roomList.Add(chatRoom);
         }
-        public void AddMessage(string sentMessage, string chatRoomName)
+        public void AddMessage(string sentMessage, string chatRoomName, string username)
         {
             room = GetChatRoom(chatRoomName);
             DateTime currentDate = DateTime.Now;
             string formattedDate = currentDate.ToString("HH:mm:ss");
-            Message newMessage = new Message { MessageText = (formattedDate + ": " + sentMessage) };
+            Message newMessage = new Message { MessageText = (formattedDate + ": " + username + ": " + sentMessage) };
             room.Messages.Add(newMessage);
         }
 

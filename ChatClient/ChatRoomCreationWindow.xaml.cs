@@ -1,4 +1,6 @@
 ﻿using ChatBusinessServer;
+using ChatClient;
+using DLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,44 +16,41 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DLL;
-using System.Threading;
 
-namespace ChatClient
+namespace ChatClient1
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for ChatRoomCreationWindow.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class ChatRoomCreationWindow : Window
     {
+        public string ChatRoomname { get; private set; }
+        private string username;
         private ChatBusinessInterface foob;
-        public LoginPage()
+
+        public ChatRoomCreationWindow(string username)
         {
             InitializeComponent();
-
             ChannelFactory<ChatBusinessServer.ChatBusinessInterface> foobFactory;
             NetTcpBinding tcp = new NetTcpBinding();
 
             string URL = "net.tcp://localhost:8200/BusinessService";
             foobFactory = new ChannelFactory<ChatBusinessInterface>(tcp, URL);
             foob = foobFactory.CreateChannel();
+
+            this.username = username;
+            
         }
 
-        private async void loginButton_Click(object sender, RoutedEventArgs e)
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-            string username = userName.Text.ToString();
+            this.Close();
+        }
 
-            Boolean userSuccess = await Task.Run(() => foob.AddUser(username));
-
-            if (userSuccess)
-            {
-                userNameStatus.Text = "Login Success: Welcome!";
-                NavigationService.Navigate(new ChatRoomSelection(username));
-            }
-            else
-            {
-                userNameStatus.Text = "Invalid Name: Taken Already";
-            }
+        private void okButton_Click(object sender, RoutedEventArgs e)
+        {
+            ChatRoomname = ChatRoomName.Text.ToString();
+            this.Close();
         }
     }
 }

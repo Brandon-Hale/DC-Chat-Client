@@ -56,11 +56,11 @@ namespace ChatBusinessServer
 
 
         //chat stuff
-        public void AddMessage(string sentMessage, string chatRoomName)
+        public void AddMessage(string sentMessage, string chatRoomName, string username)
         {
             Log($"GetMessages Called with string: {sentMessage}");
 
-            foob.AddMessage(sentMessage, chatRoomName);
+            foob.AddMessage(sentMessage, chatRoomName, username);
         }
 
         public List<Message> GetMessages(string chatRoomName)
