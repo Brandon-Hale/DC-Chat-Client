@@ -16,14 +16,21 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DLL;
 using System.Threading;
+using ServiceInterface;
+using ChatClient1;
 
 namespace ChatClient
 {
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
+    public delegate void ProcessLongTask();
     public partial class LoginPage : Page
     {
+        private ProcessServiceInterface processFoob;
+        private ProcessServiceCallback processFoobCallback;
+        private ProcessLongTask longTask;
+        IAsyncResult asyncResult;
         private ChatBusinessInterface foob;
         public LoginPage()
         {
@@ -31,15 +38,33 @@ namespace ChatClient
 
             ChannelFactory<ChatBusinessServer.ChatBusinessInterface> foobFactory;
             NetTcpBinding tcp = new NetTcpBinding();
-
             string URL = "net.tcp://localhost:8200/BusinessService";
             foobFactory = new ChannelFactory<ChatBusinessInterface>(tcp, URL);
             foob = foobFactory.CreateChannel();
+
+            DuplexChannelFactory<ProcessServiceInterface> processFoobFactory;
+            NetTcpBinding processTcp = new NetTcpBinding();
+            string processURL = "net.tcp://localhost:8300/ProcessService";
+            processFoobCallback = new ProcessServiceCallbackImple(this);
+            processFoobFactory = new DuplexChannelFactory<ProcessServiceInterface>(processFoobCallback, processTcp, processURL);
+            processFoob = processFoobFactory.CreateChannel();
+
+        }
+
+        public void Progress(int percentageCompleted)
+        {
+           loginProgress.Dispatcher.Invoke(new Action(() => { loginProgress.Value = percentageCompleted; }));
+            if (percentageCompleted == 100)
+            {
+                asyncResult.AsyncWaitHandle.Close();
+            }
         }
 
         private async void loginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = userName.Text.ToString();
+            longTask = processFoob.ProcessLongTask;
+            asyncResult = longTask.BeginInvoke(null, null);
 
             Boolean userSuccess = await Task.Run(() => foob.AddUser(username));
 

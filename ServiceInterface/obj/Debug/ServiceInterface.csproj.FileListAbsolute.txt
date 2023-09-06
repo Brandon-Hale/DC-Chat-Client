@@ -1,0 +1,6 @@
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ServiceInterface\bin\Debug\ServiceInterface.dll
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ServiceInterface\bin\Debug\ServiceInterface.pdb
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ServiceInterface\obj\Debug\ServiceInterface.csproj.AssemblyReference.cache
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ServiceInterface\obj\Debug\ServiceInterface.csproj.CoreCompileInputs.cache
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ServiceInterface\obj\Debug\ServiceInterface.dll
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ServiceInterface\obj\Debug\ServiceInterface.pdb

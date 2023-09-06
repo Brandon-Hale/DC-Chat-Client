@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatDatabaseServer", "ChatD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatBusinessServer", "ChatBusinessServer\ChatBusinessServer.csproj", "{7C2007E5-190C-42CB-A7EB-C3978985EE03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceInterface", "ServiceInterface\ServiceInterface.csproj", "{B4CA39BE-8A6F-48A3-A40E-3DAFAE835392}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuplexServer", "DuplexServer\DuplexServer.csproj", "{81EDCCF6-FC83-454A-B739-5CB59B158577}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{7C2007E5-190C-42CB-A7EB-C3978985EE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C2007E5-190C-42CB-A7EB-C3978985EE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C2007E5-190C-42CB-A7EB-C3978985EE03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4CA39BE-8A6F-48A3-A40E-3DAFAE835392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4CA39BE-8A6F-48A3-A40E-3DAFAE835392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4CA39BE-8A6F-48A3-A40E-3DAFAE835392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4CA39BE-8A6F-48A3-A40E-3DAFAE835392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81EDCCF6-FC83-454A-B739-5CB59B158577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81EDCCF6-FC83-454A-B739-5CB59B158577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81EDCCF6-FC83-454A-B739-5CB59B158577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81EDCCF6-FC83-454A-B739-5CB59B158577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

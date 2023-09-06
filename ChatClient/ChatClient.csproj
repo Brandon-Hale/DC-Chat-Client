@@ -99,6 +99,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProcessServiceCallbackImple.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -132,6 +133,14 @@
     <ProjectReference Include="..\DLL\DLL.csproj">
       <Project>{f07b77c1-1c39-4ce3-8159-0160a447c934}</Project>
       <Name>DLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DuplexServer\DuplexServer.csproj">
+      <Project>{81edccf6-fc83-454a-b739-5cb59b158577}</Project>
+      <Name>DuplexServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceInterface\ServiceInterface.csproj">
+      <Project>{b4ca39be-8a6f-48a3-a40e-3dafae835392}</Project>
+      <Name>ServiceInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,11 @@
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\DuplexServer\bin\Debug\DuplexServer.exe.config
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\DuplexServer\bin\Debug\DuplexServer.exe
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\DuplexServer\bin\Debug\DuplexServer.pdb
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\DuplexServer\bin\Debug\ServiceInterface.dll
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\DuplexServer\bin\Debug\ServiceInterface.pdb
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.csproj.AssemblyReference.cache
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.csproj.SuggestedBindingRedirects.cache
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.csproj.CoreCompileInputs.cache
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.csproj.CopyComplete
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.exe
+C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.pdb
