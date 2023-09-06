@@ -39,12 +39,34 @@ namespace ChatClient
         {
             NavigationService.GoBack();
         }
+        private void addChatRoomButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         private void joinChatRoom1_Click(object sender, RoutedEventArgs e)
         {
-            foob.AddChatRoom("ChatRoom1");
+            string chatRoom = "ChatRoom1";
+            foob.AddChatRoom(chatRoom);
 
-            NavigationService.Navigate(new ChatRoomMessage());
+            NavigationService.Navigate(new ChatRoomMessage(chatRoom));
+        }
+
+        private void joinChatRoom2_Click(object sender, RoutedEventArgs e)
+        {
+            string chatRoom = "ChatRoom2";
+            foob.AddChatRoom(chatRoom);
+
+            NavigationService.Navigate(new ChatRoomMessage(chatRoom));
+
+        }
+
+        private void joinChatRoom3_Click(object sender, RoutedEventArgs e)
+        {
+            string chatRoom = "ChatRoom3";
+            foob.AddChatRoom(chatRoom);
+
+            NavigationService.Navigate(new ChatRoomMessage(chatRoom));
         }
     }
 }

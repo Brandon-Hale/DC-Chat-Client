@@ -9,9 +9,27 @@
       Title="ChatRoomSelection">
 
     <Grid Background="White">
+        <!-- Title -->
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Chat Room Selection" VerticalAlignment="Top" FontSize="15"/>
+
+        <!-- Chat Room 1 -->
+        <StackPanel Margin="20,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock Name="chatRoom1" Text="Chat Room 1" FontSize="18"/>
+            <Button Name="joinChatRoom1" Content="Join" Click="joinChatRoom1_Click" Width="80" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="145,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock Name="chatRoom2" Text="Chat Room 2" FontSize="18"/>
+            <Button Name="joinChatRoom2" Content="Join" Click="joinChatRoom2_Click" Width="80" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="270,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock Name="chatRoom3" Text="Chat Room 3" FontSize="18"/>
+            <Button Name="joinChatRoom3" Content="Join" Click="joinChatRoom3_Click" Width="80" Height="30"/>
+        </StackPanel>
+
+        <!-- Add Chat Room Button -->
         <Button Name="backButton" Content="Go Back" HorizontalAlignment="Left" Margin="10,405,0,0" VerticalAlignment="Top" Height="35" Width="70" Click="backButton_Click"/>
-        <Button Name="joinChatRoom1" Content="Join" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" Click="joinChatRoom1_Click"/>
-        <TextBlock Name ="chatRoom1" HorizontalAlignment="Left" Margin="28,50,0,0" TextWrapping="Wrap" Text="Chat Room 1" VerticalAlignment="Top"/>
+        <Button Name="addChatRoomButton" Content="Add Chat Room" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,405,0,0" Width="120" Height="35" Click="addChatRoomButton_Click"/>
     </Grid>
 </Page>

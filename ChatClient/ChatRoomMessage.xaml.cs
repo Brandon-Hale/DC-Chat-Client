@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+using System.Threading;
 
 namespace ChatClient
 {
@@ -23,16 +25,21 @@ namespace ChatClient
     /// </summary>
     public partial class ChatRoomMessage : Page
     {
+
         private ChatBusinessInterface foob;
-        public ChatRoomMessage()
+        string chatRoomName;
+        public ChatRoomMessage(string chatRoomName)
         {
             InitializeComponent();
+
             ChannelFactory<ChatBusinessServer.ChatBusinessInterface> foobFactory;
             NetTcpBinding tcp = new NetTcpBinding();
 
             string URL = "net.tcp://localhost:8200/BusinessService";
             foobFactory = new ChannelFactory<ChatBusinessInterface>(tcp, URL);
             foob = foobFactory.CreateChannel();
+
+            this.chatRoomName = chatRoomName;
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
@@ -42,10 +49,11 @@ namespace ChatClient
 
         private async void SendButton_Click(object sender, RoutedEventArgs e)
         {
+            //working for 1 chatROom currently can talk throughout
             string sentMessage = MessageBox.Text.ToString();
 
-            await Task.Run(() => foob.AddMessage(sentMessage, "ChatRoom1"));
-            string chatMessages = await Task.Run(() => foob.PrintMessages("ChatRoom1"));
+            await Task.Run(() => foob.AddMessage(sentMessage, chatRoomName));
+            string chatMessages = await Task.Run(() => foob.PrintMessages(chatRoomName));
 
             ChatBox.Text = chatMessages;
             ChatBox.Visibility = Visibility.Visible;
