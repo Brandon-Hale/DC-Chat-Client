@@ -19,6 +19,8 @@ namespace ChatBusinessServer
         Boolean AddUser(string username);
         [OperationContract]
         Boolean DuplicateUser(string username);
+        [OperationContract]
+        void RemoveUser(string username);
 
         //chatRoom
         [OperationContract]
@@ -33,7 +35,7 @@ namespace ChatBusinessServer
         [OperationContract]
         ChatRoom GetChatRoom(string chatRoomName);
         [OperationContract]
-        void AddChatRoom(string chatRoomName);
+        void AddChatRoom(string chatRoomName, string username);
 
     }
 }

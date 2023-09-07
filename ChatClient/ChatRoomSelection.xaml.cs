@@ -59,7 +59,7 @@ namespace ChatClient
             else
             {
                 string newChatRoomName = chatRoomCreationWindow.ChatRoomname.ToString();
-                foob.AddChatRoom(newChatRoomName);
+                foob.AddChatRoom(newChatRoomName, username);
 
                 newChatRoom.Text = newChatRoomName;
                 chatRoomNameNew = newChatRoomName;
@@ -73,7 +73,7 @@ namespace ChatClient
         private void joinChatRoom1_Click(object sender, RoutedEventArgs e)
         {
             string chatRoom = "ChatRoom1";
-            foob.AddChatRoom(chatRoom);
+            foob.AddChatRoom(chatRoom, username);
 
             NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
         }
@@ -81,7 +81,7 @@ namespace ChatClient
         private void joinChatRoom2_Click(object sender, RoutedEventArgs e)
         {
             string chatRoom = "ChatRoom2";
-            foob.AddChatRoom(chatRoom);
+            foob.AddChatRoom(chatRoom, username);
 
             NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
 
@@ -90,7 +90,7 @@ namespace ChatClient
         private void joinChatRoom3_Click(object sender, RoutedEventArgs e)
         {
             string chatRoom = "ChatRoom3";
-            foob.AddChatRoom(chatRoom);
+            foob.AddChatRoom(chatRoom, username);
 
             NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
         }
@@ -99,6 +99,38 @@ namespace ChatClient
         {
             string chatRoom = chatRoomNameNew;
             NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
+        }
+
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            foob.RemoveUser(username);
+            NavigationService.Navigate(new LoginPage());
+
+        }
+
+        private void joinChatRoom4_Click(object sender, RoutedEventArgs e)
+        {
+            string chatRoom = "ChatRoom4";
+            foob.AddChatRoom(chatRoom, username);
+
+            NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
+        }
+
+        private void joinChatRoom5_Click(object sender, RoutedEventArgs e)
+        {
+            string chatRoom = "ChatRoom5";
+            foob.AddChatRoom(chatRoom, username);
+
+            NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
+        }
+
+        private void joinChatRoom6_Click(object sender, RoutedEventArgs e)
+        {
+            string chatRoom = "ChatRoom6";
+            foob.AddChatRoom(chatRoom, username);
+
+            NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
+
         }
     }
 }

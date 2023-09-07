@@ -80,5 +80,12 @@ namespace ChatClient
             ChatBox.Text = chatMessages;
             ChatBox.Visibility = Visibility.Visible;
         }
+
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            foob.RemoveUser(username);
+            NavigationService.Navigate(new LoginPage());
+            
+        }
     }
 }

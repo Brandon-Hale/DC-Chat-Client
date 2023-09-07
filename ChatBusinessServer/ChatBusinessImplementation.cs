@@ -54,6 +54,11 @@ namespace ChatBusinessServer
             return foob.DuplicateUser(username);
         }
 
+        public void RemoveUser(string username)
+        {
+            Log($"RemoveUser Called with string: {username}");
+            foob.RemoveUser(username);
+        }
 
         //chat stuff
         public void AddMessage(string sentMessage, string chatRoomName, string username)
@@ -82,10 +87,10 @@ namespace ChatBusinessServer
             return foob.GetChatRoom(chatRoomName);
         }
 
-        public void AddChatRoom(string chatRoomName)
+        public void AddChatRoom(string chatRoomName, string username)
         {
-            Log($"AddChatRoom Called with string: {chatRoomName}");
-            foob.AddChatRoom(chatRoomName);
+            Log($"AddChatRoom Called with string: {chatRoomName} by user: {username}");
+            foob.AddChatRoom(chatRoomName, username);
         }
     }
 }

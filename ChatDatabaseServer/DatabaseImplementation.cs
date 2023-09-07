@@ -54,6 +54,24 @@ namespace ChatDatabaseServer
             return userAdded;
         }
 
+        public void RemoveUser(string username)
+        {
+            try
+            {
+                foreach (User user in users)
+                {
+                    if (user.Username.Equals(username))
+                    {
+                        users.Remove(user);
+                    }
+                }
+            }
+            catch  (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
         public List<User> GetUsers()
         {
             return users;
@@ -61,7 +79,7 @@ namespace ChatDatabaseServer
 
 
         //stuff for chat Rooms
-        public void AddChatRoom(string chatRoomName)
+        public void AddChatRoom(string chatRoomName, string username)
         {
             ChatRoom chatRoom = new ChatRoom();
             chatRoom.RoomName = chatRoomName;

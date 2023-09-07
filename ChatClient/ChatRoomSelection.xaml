@@ -11,7 +11,7 @@
     <Grid Background="White">
         <!-- Title -->
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Chat Room Selection" VerticalAlignment="Top" FontSize="15"/>
-
+        <Button Name="LogoutButton" Content="Logout" HorizontalAlignment="Left" Margin="10,365,0,0" VerticalAlignment="Top" Height="35" Width="70" Click="logoutButton_Click"/>
         <!-- Chat Room 1 -->
         <StackPanel Margin="20,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock Name="chatRoom1" Text="Chat Room 1" FontSize="18"/>
@@ -26,6 +26,21 @@
         <StackPanel Margin="270,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock Name="chatRoom3" Text="Chat Room 3" FontSize="18"/>
             <Button Name="joinChatRoom3" Content="Join" Click="joinChatRoom3_Click" Width="80" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="20,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock Name="chatRoom4" Text="Coding Room" FontSize="18"/>
+            <Button Name="joinChatRoom4" Content="Join" Click="joinChatRoom4_Click" Width="80" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="145,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock Name="chatRoom5" Text="Gaming Room" FontSize="18"/>
+            <Button Name="joinChatRoom5" Content="Join" Click="joinChatRoom5_Click" Width="80" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="270,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock Name="chatRoom6" Text="Sajib's Room" FontSize="18"/>
+            <Button Name="joinChatRoom6" Content="Join" Click="joinChatRoom6_Click" Width="80" Height="30"/>
         </StackPanel>
 
         <StackPanel Name="newChatStack" Margin="395,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
