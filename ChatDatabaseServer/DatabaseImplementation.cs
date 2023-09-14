@@ -77,6 +77,10 @@ namespace ChatDatabaseServer
             return users;
         }
 
+        public List<ChatRoom> GetChatRooms()
+        {
+            return roomList;
+        }
 
         //stuff for chat Rooms
         public void AddChatRoom(string chatRoomName, string username)
@@ -109,12 +113,20 @@ namespace ChatDatabaseServer
         }
         public ChatRoom GetChatRoom(string chatRoomName)
         {
-            foreach (ChatRoom chatRoom in roomList)
+            try
             {
-                if (chatRoomName.Equals(chatRoom.RoomName.ToString()))
+                foreach (ChatRoom chatRoom in roomList)
                 {
-                    return chatRoom;
+                    if (chatRoomName.Equals(chatRoom.RoomName.ToString()))
+                    {
+                        return chatRoom;
+                    }
                 }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             return null;
         }

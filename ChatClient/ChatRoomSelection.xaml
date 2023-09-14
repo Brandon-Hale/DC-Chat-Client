@@ -51,5 +51,6 @@
         <!-- Add Chat Room Button -->
         <Button Name="backButton" Content="Go Back" HorizontalAlignment="Left" Margin="10,405,0,0" VerticalAlignment="Top" Height="35" Width="70" Click="backButton_Click"/>
         <Button Name="addChatRoomButton" Content="Add Chat Room" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,405,0,0" Width="120" Height="35" Click="addChatRoomButton_Click"/>
+        <Button Name="RefreshButton" Content="Refresh" HorizontalAlignment="Left" Margin="85,365,0,0" VerticalAlignment="Top" Height="35" Width="120" Click="RefreshButton_Click"/>
     </Grid>
 </Page>

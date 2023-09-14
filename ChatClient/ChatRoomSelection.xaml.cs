@@ -29,6 +29,7 @@ namespace ChatClient
         private ChatBusinessInterface foob;
         private string username;
         private string chatRoomNameNew;
+        
         public ChatRoomSelection(string username)
         {
             InitializeComponent();
@@ -58,17 +59,16 @@ namespace ChatClient
             }
             else
             {
-                string newChatRoomName = chatRoomCreationWindow.ChatRoomname.ToString();
-                foob.AddChatRoom(newChatRoomName, username);
+                chatRoomNameNew = chatRoomCreationWindow.ChatRoomname.ToString();
+                foob.AddChatRoom(chatRoomNameNew, username);
 
-                newChatRoom.Text = newChatRoomName;
-                chatRoomNameNew = newChatRoomName;
+                newChatRoom.Text = chatRoomNameNew;
                 newChatStack.Visibility = Visibility.Visible;
-
-                NavigationService.Navigate(new ChatRoomMessage(newChatRoomName, username));
 
             }
         }
+
+
 
         private void joinChatRoom1_Click(object sender, RoutedEventArgs e)
         {
@@ -131,6 +131,13 @@ namespace ChatClient
 
             NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
 
+        }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        { //fix
+            foob.AddChatRoom(chatRoomNameNew, username);
+            newChatRoom.Text = chatRoomNameNew;
+            newChatStack.Visibility = Visibility.Visible;
         }
     }
 }

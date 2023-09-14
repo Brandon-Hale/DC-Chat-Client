@@ -32,6 +32,7 @@ namespace ChatClient
         private ProcessLongTask longTask;
         IAsyncResult asyncResult;
         private ChatBusinessInterface foob;
+
         public LoginPage()
         {
             InitializeComponent();

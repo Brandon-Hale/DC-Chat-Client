@@ -21,7 +21,6 @@ C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-Cl
 C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatDatabaseServer.exe.config
 C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatBusinessServer\bin\Debug\DLL.pdb
 C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.AssemblyReference.cache
-C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.SuggestedBindingRedirects.cache
 C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.CoreCompileInputs.cache
 C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.CopyComplete
 C:\Users\brand\Documents\CodingSource\B-COMP_UNI\DistributedComputing\DC-Chat-ClientGroup\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.exe

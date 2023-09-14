@@ -61,6 +61,11 @@ namespace ChatBusinessServer
         }
 
         //chat stuff
+        public List<ChatRoom> GetChatRooms()
+        {
+            return foob.GetChatRooms();
+        }
+
         public void AddMessage(string sentMessage, string chatRoomName, string username)
         {
             Log($"GetMessages Called with string: {sentMessage}");
