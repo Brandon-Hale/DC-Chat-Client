@@ -97,5 +97,11 @@ namespace ChatBusinessServer
             Log($"AddChatRoom Called with string: {chatRoomName} by user: {username}");
             foob.AddChatRoom(chatRoomName, username);
         }
+
+        public List<String> GetUserCreatedRooms(string username)
+        {
+            Log($"GetUserCreatedRooms called by user: {username}");
+            return foob.GetUserCreatedRooms();
+        }
     }
 }

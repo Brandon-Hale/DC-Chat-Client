@@ -39,5 +39,8 @@ namespace ChatBusinessServer
         [OperationContract]
         List<ChatRoom> GetChatRooms();
 
+        [OperationContract]
+        List<String> GetUserCreatedRooms(string username);
+
     }
 }

@@ -85,9 +85,16 @@ namespace ChatDatabaseServer
         //stuff for chat Rooms
         public void AddChatRoom(string chatRoomName, string username)
         {
-            ChatRoom chatRoom = new ChatRoom();
-            chatRoom.RoomName = chatRoomName;
-            roomList.Add(chatRoom);
+            if(!roomList.Any(item => item.RoomName == chatRoomName))
+            {
+                ChatRoom chatRoom = new ChatRoom();
+                chatRoom.RoomName = chatRoomName;
+                roomList.Add(chatRoom);
+            }
+            for(int i = 0; i < roomList.Count; i++)
+            {
+                Console.WriteLine(roomList[i].RoomName);
+            }
         }
         public void AddMessage(string sentMessage, string chatRoomName, string username)
         {
@@ -137,6 +144,15 @@ namespace ChatDatabaseServer
             List<Message> messages = chatRoom.Messages;
 
             return messages;
+        }
+
+        public List<String> GetUserCreatedRooms()
+        {
+            List<String> rooms = new List<String>();
+            for(int i = 6; i < roomList.Count; i++) {
+                rooms.Add(roomList[i].RoomName);
+            }
+            return rooms;
         }
     }
 }
