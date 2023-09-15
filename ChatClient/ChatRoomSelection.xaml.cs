@@ -29,6 +29,7 @@ namespace ChatClient
         private ChatBusinessInterface foob;
         private string username;
         private List<String> userCreatedRooms;
+        private Timer updateRoomsTimer;
         public ChatRoomSelection(string username)
         {
             InitializeComponent();
@@ -38,6 +39,8 @@ namespace ChatClient
             string URL = "net.tcp://localhost:8200/BusinessService";
             foobFactory = new ChannelFactory<ChatBusinessInterface>(tcp, URL);
             foob = foobFactory.CreateChannel();
+
+            updateRoomsTimer = new Timer(RoomListUpdateCallback, null, TimeSpan.Zero, TimeSpan.FromSeconds(7));
 
             this.username = username;
 
@@ -71,6 +74,30 @@ namespace ChatClient
             PopulateComboBox();
         }
 
+        private async void RoomListUpdateCallback(object state)
+        {
+            try
+            {
+                List<ChatRoom> updatedRooms = await Task.Run(() => foob.GetChatRooms());
+
+                updatedRooms = updatedRooms.Where(room => !IsExcludedRoom(room.RoomName.ToString())).ToList();
+
+                Dispatcher.Invoke(() =>
+                {
+                    userCreatedComboBox.Items.Clear();
+                    foreach (ChatRoom room in updatedRooms)
+                    {
+                        userCreatedComboBox.Items.Add(room.RoomName.ToString());
+
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
         private void addChatRoomButton_Click(object sender, RoutedEventArgs e)
         {
             ChatRoomCreationWindow chatRoomCreationWindow = new ChatRoomCreationWindow(username);
@@ -83,12 +110,18 @@ namespace ChatClient
             else
             {
                 string newChatRoomName = chatRoomCreationWindow.ChatRoomname.ToString();
-                foob.AddChatRoom(newChatRoomName, username);
-                PopulateComboBox();
+                Task.Run(() => foob.AddChatRoom(newChatRoomName, username));
 
                 NavigationService.Navigate(new ChatRoomMessage(newChatRoomName, username));
 
             }
+        }
+
+        private Boolean IsExcludedRoom(string roomName)
+        {
+            string[] exludedRoomNames = { "ChatRoom1", "ChatRoom2", "ChatRoom3", "ChatRoom4", "ChatRoom5", "ChatRoom6" };
+
+            return exludedRoomNames.Contains(roomName);
         }
 
         private void joinChatRoom1_Click(object sender, RoutedEventArgs e)
@@ -131,16 +164,23 @@ namespace ChatClient
 
         private void joinUserCreatedRoom_Click(object sender, RoutedEventArgs e)
         {
-            string chatRoom = userCreatedComboBox.SelectedItem.ToString();
-            if(chatRoom != "" || chatRoom != null)
+            try
             {
-                NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
+                string chatRoom = userCreatedComboBox.SelectedItem as string;
+                if (!string.IsNullOrEmpty(chatRoom))
+                {
+                    NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            
         }
 
         private void PopulateComboBox()
         {
-            userCreatedComboBox.Items.Clear();
             userCreatedRooms = foob.GetUserCreatedRooms(username);
             foreach (String room in userCreatedRooms)
             {
