@@ -37,6 +37,8 @@ namespace ChatDatabaseServer
         [OperationContract]
         void AddChatRoom(string chatRoomName, string username);
 
+        [OperationContract]
+        List<String> GetUserCreatedRooms();
 
     }
 }

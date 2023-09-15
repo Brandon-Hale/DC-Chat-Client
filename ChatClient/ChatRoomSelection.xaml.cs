@@ -28,11 +28,10 @@ namespace ChatClient
     {
         private ChatBusinessInterface foob;
         private string username;
-        private string chatRoomNameNew;
+        private List<String> userCreatedRooms;
         public ChatRoomSelection(string username)
         {
             InitializeComponent();
-            newChatStack.Visibility = Visibility.Hidden;
             ChannelFactory<ChatBusinessServer.ChatBusinessInterface> foobFactory;
             NetTcpBinding tcp = new NetTcpBinding();
 
@@ -41,12 +40,37 @@ namespace ChatClient
             foob = foobFactory.CreateChannel();
 
             this.username = username;
+
+            //Adding Default Chatrooms (if required)
+            foob.AddChatRoom("ChatRoom1", username);
+            foob.AddChatRoom("ChatRoom2", username);
+            foob.AddChatRoom("ChatRoom3", username);
+            foob.AddChatRoom("ChatRoom4", username);
+            foob.AddChatRoom("ChatRoom5", username);
+            foob.AddChatRoom("ChatRoom6", username);
+
+
+            //Populating User Created Rooms Combo Box
+            PopulateComboBox();
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
+
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            foob.RemoveUser(username);
+            NavigationService.Navigate(new LoginPage());
+
+        }
+
+        private void refreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            PopulateComboBox();
+        }
+
         private void addChatRoomButton_Click(object sender, RoutedEventArgs e)
         {
             ChatRoomCreationWindow chatRoomCreationWindow = new ChatRoomCreationWindow(username);
@@ -60,10 +84,7 @@ namespace ChatClient
             {
                 string newChatRoomName = chatRoomCreationWindow.ChatRoomname.ToString();
                 foob.AddChatRoom(newChatRoomName, username);
-
-                newChatRoom.Text = newChatRoomName;
-                chatRoomNameNew = newChatRoomName;
-                newChatStack.Visibility = Visibility.Visible;
+                PopulateComboBox();
 
                 NavigationService.Navigate(new ChatRoomMessage(newChatRoomName, username));
 
@@ -73,16 +94,12 @@ namespace ChatClient
         private void joinChatRoom1_Click(object sender, RoutedEventArgs e)
         {
             string chatRoom = "ChatRoom1";
-            foob.AddChatRoom(chatRoom, username);
-
             NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
         }
 
         private void joinChatRoom2_Click(object sender, RoutedEventArgs e)
         {
             string chatRoom = "ChatRoom2";
-            foob.AddChatRoom(chatRoom, username);
-
             NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
 
         }
@@ -90,47 +107,45 @@ namespace ChatClient
         private void joinChatRoom3_Click(object sender, RoutedEventArgs e)
         {
             string chatRoom = "ChatRoom3";
-            foob.AddChatRoom(chatRoom, username);
-
             NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
-        }
-
-        private void joinNewChatRoom_Click(object sender, RoutedEventArgs e)
-        {
-            string chatRoom = chatRoomNameNew;
-            NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
-        }
-
-        private void logoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            foob.RemoveUser(username);
-            NavigationService.Navigate(new LoginPage());
-
         }
 
         private void joinChatRoom4_Click(object sender, RoutedEventArgs e)
         {
             string chatRoom = "ChatRoom4";
-            foob.AddChatRoom(chatRoom, username);
-
             NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
         }
 
         private void joinChatRoom5_Click(object sender, RoutedEventArgs e)
         {
             string chatRoom = "ChatRoom5";
-            foob.AddChatRoom(chatRoom, username);
-
             NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
         }
 
         private void joinChatRoom6_Click(object sender, RoutedEventArgs e)
         {
             string chatRoom = "ChatRoom6";
-            foob.AddChatRoom(chatRoom, username);
-
             NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
 
+        }
+
+        private void joinUserCreatedRoom_Click(object sender, RoutedEventArgs e)
+        {
+            string chatRoom = userCreatedComboBox.SelectedItem.ToString();
+            if(chatRoom != "" || chatRoom != null)
+            {
+                NavigationService.Navigate(new ChatRoomMessage(chatRoom, username));
+            }
+        }
+
+        private void PopulateComboBox()
+        {
+            userCreatedComboBox.Items.Clear();
+            userCreatedRooms = foob.GetUserCreatedRooms(username);
+            foreach (String room in userCreatedRooms)
+            {
+                userCreatedComboBox.Items.Add(room);
+            }
         }
     }
 }
