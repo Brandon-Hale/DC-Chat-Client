@@ -41,6 +41,8 @@ namespace ChatDatabaseServer
 
         [OperationContract]
         List<String> GetUserCreatedRooms();
+        [OperationContract]
+        void AddPrivateRooms(string username);
 
     }
 }

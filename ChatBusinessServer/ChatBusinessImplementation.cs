@@ -65,7 +65,6 @@ namespace ChatBusinessServer
         {
             return foob.GetChatRooms();
         }
-
         public void AddMessage(string sentMessage, string chatRoomName, string username)
         {
             Log($"GetMessages Called with string: {sentMessage}");
@@ -75,8 +74,6 @@ namespace ChatBusinessServer
 
         public List<Message> GetMessages(string chatRoomName)
         {
-            Log($"GetMessages Called:");
-
             return foob.GetMessages(chatRoomName);
         }
         public string PrintMessages(string chatRoomName)
@@ -102,6 +99,11 @@ namespace ChatBusinessServer
         {
             Log($"GetUserCreatedRooms called by user: {username}");
             return foob.GetUserCreatedRooms();
+        }
+
+        public void AddPrivateRooms(string username)
+        {
+            foob.AddPrivateRooms(username);
         }
     }
 }

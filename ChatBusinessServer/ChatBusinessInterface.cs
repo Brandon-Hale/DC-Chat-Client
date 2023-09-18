@@ -15,6 +15,7 @@ namespace ChatBusinessServer
         [OperationContract]
         List<User> GetUsers();
 
+
         [OperationContract]
         Boolean AddUser(string username);
         [OperationContract]
@@ -42,5 +43,7 @@ namespace ChatBusinessServer
         [OperationContract]
         List<String> GetUserCreatedRooms(string username);
 
+        [OperationContract]
+        void AddPrivateRooms(string username);
     }
 }

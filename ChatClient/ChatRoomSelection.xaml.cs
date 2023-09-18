@@ -29,6 +29,8 @@ namespace ChatClient
         private ChatBusinessInterface foob;
         private string username;
         private List<String> userCreatedRooms;
+        private List<User> usersOnlineRooms;
+        private List<ChatRoom> privateChatRooms;
         private Timer updateRoomsTimer;
         public ChatRoomSelection(string username)
         {
@@ -72,6 +74,7 @@ namespace ChatClient
         private void refreshButton_Click(object sender, RoutedEventArgs e)
         {
             PopulateComboBox();
+            PopulateUsersBox(username);
         }
 
         private async void RoomListUpdateCallback(object state)
@@ -79,7 +82,8 @@ namespace ChatClient
             try
             {
                 List<ChatRoom> updatedRooms = await Task.Run(() => foob.GetChatRooms());
-
+                List<User> onlineUsers = await Task.Run(() => foob.GetUsers());
+                await Task.Run(() => foob.AddPrivateRooms(username));
                 updatedRooms = updatedRooms.Where(room => !IsExcludedRoom(room.RoomName.ToString())).ToList();
 
                 Dispatcher.Invoke(() =>
@@ -87,8 +91,21 @@ namespace ChatClient
                     userCreatedComboBox.Items.Clear();
                     foreach (ChatRoom room in updatedRooms)
                     {
-                        userCreatedComboBox.Items.Add(room.RoomName.ToString());
-
+                        foreach(User user in onlineUsers)
+                        {
+                            if (!room.RoomName.Contains(user.Username))
+                            {
+                                userCreatedComboBox.Items.Add(room.RoomName.ToString());
+                            }
+                        }
+                    }
+                    usersOnlineComboBox.Items.Clear();
+                    foreach(User user in onlineUsers)
+                    {
+                        if (!user.Username.Equals(username))
+                        {
+                            usersOnlineComboBox.Items.Add(user.Username.ToString());
+                        }
                     }
                 });
             }
@@ -175,8 +192,49 @@ namespace ChatClient
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+            }    
+        }
+
+        private void joinUserOnlineRoom_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string otherusername = usersOnlineComboBox.SelectedItem as string;
+                List<ChatRoom> rooms = foob.GetChatRooms();
+                string chatRoom1 = username + otherusername;
+                string chatRoom2 = otherusername + username;
+
+                if (!string.IsNullOrEmpty(otherusername))
+                {
+                    foreach (ChatRoom room in rooms)
+                    {
+                        if (room.RoomName.Equals(chatRoom1))
+                        {
+                            NavigationService.Navigate(new ChatRoomMessage(chatRoom1, username));
+                        }
+                        else if (room.RoomName.Equals(chatRoom2))
+                        {
+                            NavigationService.Navigate(new ChatRoomMessage(chatRoom2, username));
+                        }
+                    }
+                }
             }
-            
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        private void PopulateUsersBox(string username)
+        {
+            usersOnlineRooms = foob.GetUsers();
+            foreach (User user in usersOnlineRooms)
+            {
+                if (!user.Username.Equals(username))
+                {
+                    usersOnlineComboBox.Items.Add(user);
+                }
+            }
         }
 
         private void PopulateComboBox()

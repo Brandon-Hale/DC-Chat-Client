@@ -18,6 +18,7 @@
         <!-- User Created Rooms Border -->
         <Rectangle HorizontalAlignment="Left" Height="82" Margin="3,230,0,0" Stroke="Black" VerticalAlignment="Top" Width="386"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,230,0,0" TextWrapping="Wrap" Text="User Created Rooms" VerticalAlignment="Top" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="410,60,0,0" TextWrapping="Wrap" Text="Users Online" VerticalAlignment="Top" FontSize="15"/>
 
         <!-- Chat Rooms -->
         <StackPanel Margin="20,88,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -55,11 +56,19 @@
             <ComboBox Name="userCreatedComboBox" Height="30" Width="242"/>
             <Button x:Name="joinUserCreatedRoom" Content="Join" Click="joinUserCreatedRoom_Click" Width="80" Height="30" Margin="19,0,0,0"/>
         </StackPanel>
+        
+        <!-- Join user private rooms-->
+        <StackPanel Orientation="Horizontal" Margin="421,70,20,308">
+            <ComboBox x:Name="usersOnlineComboBox" Height="30" Width="242"/>
+            <Button x:Name="joinUserOnlineRoom" Content="Join" Click="joinUserOnlineRoom_Click" Width="80" Height="30" Margin="19,0,0,0"/>
+        </StackPanel>
+                    
 
         <!-- Add Chat Room Button -->
         <Button Name="backButton" Content="Go Back" HorizontalAlignment="Left" Margin="10,405,0,0" VerticalAlignment="Top" Height="35" Width="70" Click="backButton_Click"/>
         <Button Name="addChatRoomButton" Content="Add Chat Room" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,405,0,0" Width="120" Height="35" Click="addChatRoomButton_Click"/>
         <Button x:Name="refreshButton" Content="Refresh" HorizontalAlignment="Left" Height="20" Margin="717,15,0,0" VerticalAlignment="Top" Width="73" Click="refreshButton_Click"/>
+        <Rectangle HorizontalAlignment="Left" Height="82" Margin="404,60,0,0" Stroke="Black" VerticalAlignment="Top" Width="386"/>
 
 
     </Grid>

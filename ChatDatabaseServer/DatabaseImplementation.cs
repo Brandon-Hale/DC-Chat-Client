@@ -21,9 +21,11 @@ namespace ChatDatabaseServer
     {
         ChatRoom room;
         private static List<ChatRoom> roomList = new List<ChatRoom>();
+        private static List<ChatRoom> privateRoomList = new List<ChatRoom>();
         private static List<User> users = new List<User>();
 
         //stuff for Users
+
         public Boolean DuplicateUser(string username)
         {
             foreach (User user in users)
@@ -80,6 +82,28 @@ namespace ChatDatabaseServer
         public List<ChatRoom> GetChatRooms()
         {
             return roomList;
+        }
+
+        public void AddPrivateRooms(string username)
+        {
+            try
+            {
+                foreach (ChatRoom room in roomList)
+                {
+                    foreach (User user in users)
+                    {
+                        if (!room.RoomName.Equals(username + user.Username) && !room.RoomName.Equals(user.Username + username) && username != user.Username)
+                        {
+                            string privateRoomName = username + user.Username;
+                            AddChatRoom(privateRoomName, username);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                
+            } 
         }
 
         //stuff for chat Rooms
