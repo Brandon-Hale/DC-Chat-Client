@@ -12,6 +12,7 @@ using System.Configuration;
 using Microsoft.SqlServer.Server;
 using System.Runtime.CompilerServices;
 using System.Reflection.Emit;
+using System.Drawing;
 
 namespace ChatDatabaseServer
 {
@@ -102,6 +103,24 @@ namespace ChatDatabaseServer
             DateTime currentDate = DateTime.Now;
             string formattedDate = currentDate.ToString("HH:mm:ss");
             Message newMessage = new Message { MessageText = (formattedDate + ": " + username + ": " + sentMessage) };
+            room.Messages.Add(newMessage);
+        }
+
+        public void addTextFile(string fileName, string chatRoomName, string username, string file)
+        {
+            room = GetChatRoom(chatRoomName);
+            DateTime currentDate = DateTime.Now;
+            string formattedDate = currentDate.ToString("HH:mm:ss");
+            Message newMessage = new Message { MessageText = (formattedDate + ": " + username + ": " + fileName), TextFile = file };
+            room.Messages.Add(newMessage);
+        }
+
+        public void addImageFile(string fileName, string chatRoomName, string username, Bitmap image)
+        {
+            room = GetChatRoom(chatRoomName);
+            DateTime currentDate = DateTime.Now;
+            string formattedDate = currentDate.ToString("HH:mm:ss");
+            Message newMessage = new Message { MessageText = (formattedDate + ": " + username + ": " + fileName), ImageFile = image };
             room.Messages.Add(newMessage);
         }
 
