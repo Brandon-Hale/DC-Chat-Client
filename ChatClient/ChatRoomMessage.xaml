@@ -16,6 +16,7 @@
         <TextBlock Name="ChatTitle" HorizontalAlignment="Left" Margin="565,13,0,0" TextWrapping="Wrap" Text="Chat Messages:" VerticalAlignment="Top" Height="35" Width="225" FontSize="18"/>
         <Button Name="SendButton" Content="Send" HorizontalAlignment="Left" Margin="461,386,0,0" VerticalAlignment="Top" Height="54" Width="86" Click="SendButton_Click"/>
         <Button Name="LogoutButton" Content="Logout" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" Height="35" Width="70" Click="logoutButton_Click"/>
+        <Button x:Name="uploadFile" Content="File" HorizontalAlignment="Left" Height="18" Margin="748,420,0,0" VerticalAlignment="Top" Width="36" Click="uploadFile_Click"/>
 
 
     </Grid>

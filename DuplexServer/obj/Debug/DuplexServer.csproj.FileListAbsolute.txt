@@ -19,3 +19,14 @@ C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\Dupl
 C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.csproj.CopyComplete
 C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.exe
 C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.pdb
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DuplexServer\bin\Debug\DuplexServer.exe.config
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DuplexServer\bin\Debug\DuplexServer.exe
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DuplexServer\bin\Debug\DuplexServer.pdb
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DuplexServer\bin\Debug\ServiceInterface.dll
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DuplexServer\bin\Debug\ServiceInterface.pdb
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.csproj.AssemblyReference.cache
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.csproj.SuggestedBindingRedirects.cache
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.csproj.CoreCompileInputs.cache
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.csproj.CopyComplete
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.exe
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DuplexServer\obj\Debug\DuplexServer.pdb

@@ -39,3 +39,17 @@ C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\Chat
 C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.CopyComplete
 C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.exe
 C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.pdb
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatBusinessServer.exe.config
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatBusinessServer.exe
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatBusinessServer.pdb
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatDatabaseServer.exe
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\bin\Debug\DLL.dll
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatDatabaseServer.pdb
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\bin\Debug\ChatDatabaseServer.exe.config
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\bin\Debug\DLL.pdb
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.AssemblyReference.cache
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.SuggestedBindingRedirects.cache
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.CoreCompileInputs.cache
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.csproj.CopyComplete
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.exe
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\ChatBusinessServer\obj\Debug\ChatBusinessServer.pdb

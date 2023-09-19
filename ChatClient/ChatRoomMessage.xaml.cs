@@ -17,6 +17,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Threading;
+using Microsoft.Win32;
+using System.Drawing;
+using System.IO;
 
 namespace ChatClient
 {
@@ -86,6 +89,32 @@ namespace ChatClient
             foob.RemoveUser(username);
             NavigationService.Navigate(new LoginPage());
             
+        }
+
+        private void uploadFile_Click(object sender, RoutedEventArgs e)
+        {
+            var fileOpen = new OpenFileDialog();
+            fileOpen.Filter = "TXT Files(*.txt;)|*.txt;|Image Files(*.jpg;*.jpeg;*.bmp)|*.jpg;*.jpeg;.bmp;";
+            string textFile;
+            Bitmap imageFile;
+
+            bool? res = fileOpen.ShowDialog();
+            if(res.HasValue && res.Value)
+            {
+                string ext = System.IO.Path.GetExtension(fileOpen.FileName);
+                
+                //Reading text file as string
+                if(ext.Equals(".txt"))
+                {
+                    System.IO.StreamReader sr = new System.IO.StreamReader(fileOpen.FileName);
+                    textFile = sr.ReadToEnd();
+                }
+                //Reading image file as Bitmap
+                else
+                {
+                    imageFile = new Bitmap(fileOpen.FileName);
+                }
+            }
         }
     }
 }

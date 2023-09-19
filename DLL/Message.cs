@@ -11,6 +11,7 @@ namespace DLL
     {
         private string messageText;
 
+
         public Message()
         {
             messageText = "";
