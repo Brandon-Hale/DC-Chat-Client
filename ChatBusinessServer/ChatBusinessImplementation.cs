@@ -7,6 +7,7 @@ using System.ServiceModel;
 using ChatDatabaseServer;
 using System.Runtime.CompilerServices;
 using DLL;
+using System.Drawing;
 
 namespace ChatBusinessServer
 {
@@ -71,6 +72,11 @@ namespace ChatBusinessServer
             Log($"GetMessages Called with string: {sentMessage}");
 
             foob.AddMessage(sentMessage, chatRoomName, username);
+        }
+
+        public void AddTextFile(string fileName, string chatRoomName, string username, string file)
+        {
+            foob.AddTextFile(fileName, chatRoomName, username, file);
         }
 
         public List<Message> GetMessages(string chatRoomName)

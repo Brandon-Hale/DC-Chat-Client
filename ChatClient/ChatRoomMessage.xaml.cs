@@ -54,11 +54,11 @@ namespace ChatClient
         {
             try
             {
-                string chatMessages = foob.PrintMessages(chatRoomName);
+                List<Message> chatMessages = foob.GetMessages(chatRoomName);
 
                 Dispatcher.Invoke(() =>
                 {
-                    ChatBox.Text = chatMessages;
+                    displayMessages(chatMessages);
                 });
             }
             catch (Exception ex)
@@ -78,10 +78,9 @@ namespace ChatClient
             string sentMessage = MessageBox.Text.ToString();
 
             await Task.Run(() => foob.AddMessage(sentMessage, chatRoomName, username));
-            string chatMessages = await Task.Run(() => foob.PrintMessages(chatRoomName));
+            List<Message> chatMessages = await Task.Run(() => foob.GetMessages(chatRoomName));
 
-            ChatBox.Text = chatMessages;
-            ChatBox.Visibility = Visibility.Visible;
+            displayMessages(chatMessages);
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
@@ -91,28 +90,47 @@ namespace ChatClient
             
         }
 
-        private void uploadFile_Click(object sender, RoutedEventArgs e)
+        private async void uploadFile_Click(object sender, RoutedEventArgs e)
         {
             var fileOpen = new OpenFileDialog();
-            fileOpen.Filter = "TXT Files(*.txt;)|*.txt;|Image Files(*.jpg;*.jpeg;*.bmp)|*.jpg;*.jpeg;.bmp;";
+            fileOpen.Filter = "TXT Files(*.txt;)|*.txt;";
             string textFile;
-            Bitmap imageFile;
 
             bool? res = fileOpen.ShowDialog();
             if(res.HasValue && res.Value)
             {
-                string ext = System.IO.Path.GetExtension(fileOpen.FileName);
-                
-                //Reading text file as string
-                if(ext.Equals(".txt"))
+                System.IO.StreamReader sr = new System.IO.StreamReader(fileOpen.FileName);
+                textFile = sr.ReadToEnd();
+                await Task.Run(() => foob.AddTextFile(fileOpen.SafeFileName, chatRoomName, username, textFile));
+            }
+        }
+
+        private void displayMessages(List<Message> messages)
+        {
+            MessageList.Items.Clear();
+            MessageList.DisplayMemberPath = "MessageText";
+
+            foreach (Message message in messages) { 
+                MessageList.Items.Add(message);
+            }
+        }
+
+        private void MessageList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Message m = (MessageList.SelectedItem as Message);
+
+            if (m != null && m.TextFile != null)
+            {
+                var fileSave = new SaveFileDialog();
+                fileSave.Filter = "TXT Files(*.txt;)|*.txt;";
+
+                bool? res = fileSave.ShowDialog();
+                if (res.HasValue && res.Value)
                 {
-                    System.IO.StreamReader sr = new System.IO.StreamReader(fileOpen.FileName);
-                    textFile = sr.ReadToEnd();
-                }
-                //Reading image file as Bitmap
-                else
-                {
-                    imageFile = new Bitmap(fileOpen.FileName);
+                    using (StreamWriter wr = new StreamWriter(fileSave.FileName))
+                    {
+                        wr.Write(m.TextFile);
+                    }
                 }
             }
         }

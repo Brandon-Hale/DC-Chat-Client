@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using DLL;
 using System.Configuration;
+using System.Drawing;
 
 namespace ChatDatabaseServer
 {
@@ -25,6 +26,9 @@ namespace ChatDatabaseServer
         //chatRoom
         [OperationContract]
         void AddMessage(string sentMessage, string chatRoomName, string username);
+
+        [OperationContract]
+        void AddTextFile(string fileName, string chatRoomName, string username, string file);
 
         [OperationContract]
         List<Message> GetMessages(string chatRoomName);
