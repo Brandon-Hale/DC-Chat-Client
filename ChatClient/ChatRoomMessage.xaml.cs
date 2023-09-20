@@ -20,6 +20,7 @@ using System.Threading;
 using Microsoft.Win32;
 using System.Drawing;
 using System.IO;
+using Path = System.IO.Path;
 
 namespace ChatClient
 {
@@ -93,15 +94,27 @@ namespace ChatClient
         private async void uploadFile_Click(object sender, RoutedEventArgs e)
         {
             var fileOpen = new OpenFileDialog();
-            fileOpen.Filter = "TXT Files(*.txt;)|*.txt;";
+            fileOpen.Filter = "TXT Files(*.txt;)|*.txt|Image Files(*.jpg;*.jpeg)|*.jpg;*.jpeg;";
             string textFile;
 
             bool? res = fileOpen.ShowDialog();
             if(res.HasValue && res.Value)
             {
-                System.IO.StreamReader sr = new System.IO.StreamReader(fileOpen.FileName);
-                textFile = sr.ReadToEnd();
-                await Task.Run(() => foob.AddTextFile(fileOpen.SafeFileName, chatRoomName, username, textFile));
+                string ext = Path.GetExtension(fileOpen.FileName);
+
+                if (ext == ".txt")
+                {
+                    System.IO.StreamReader sr = new System.IO.StreamReader(fileOpen.FileName);
+                    textFile = sr.ReadToEnd();
+                    await Task.Run(() => foob.AddTextFile(fileOpen.SafeFileName, chatRoomName, username, textFile));
+                } else
+                {
+                    Bitmap img = new Bitmap(fileOpen.FileName);
+                    MemoryStream ms = new MemoryStream();
+                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    byte[] imgbytes = ms.ToArray();
+                    await Task.Run(() => foob.AddImageFile(fileOpen.SafeFileName, chatRoomName, username, imgbytes));
+                }
             }
         }
 
@@ -130,6 +143,21 @@ namespace ChatClient
                     using (StreamWriter wr = new StreamWriter(fileSave.FileName))
                     {
                         wr.Write(m.TextFile);
+                    }
+                }
+            }
+            else if (m != null && m.ImageFile != null)
+            {
+                var fileSave = new SaveFileDialog();
+                fileSave.Filter = "Image Files(*.jpg;*.jpeg)|*.jpg;*.jpeg;";
+
+                bool? res = fileSave.ShowDialog();
+                if (res.HasValue && res.Value)
+                {
+                    using (var ms = new MemoryStream(m.ImageFile))
+                    {
+                        Bitmap bmp = new Bitmap(ms);
+                        bmp.Save(fileSave.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
                     }
                 }
             }

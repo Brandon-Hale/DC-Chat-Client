@@ -115,6 +115,15 @@ namespace ChatDatabaseServer
             room.Messages.Add(newMessage);
         }
 
+        public void AddImageFile(string fileName, string chatRoomName, string username, byte[] image)
+        {
+            room = GetChatRoom(chatRoomName);
+            DateTime currentDate = DateTime.Now;
+            string formattedDate = currentDate.ToString("HH:mm:ss");
+            Message newMessage = new Message { MessageText = (formattedDate + ": " + username + ": " + fileName), ImageFile = image };
+            room.Messages.Add(newMessage);
+        }
+
         public string PrintMessages(string chatRoomName) //need to have time: user: message
         {
             string messageLog = "";

@@ -12,7 +12,7 @@ namespace DLL
     {
         private string messageText;
         private string textFile;
-        private Bitmap imageFile;
+        private byte[] imageFile;
 
         public Message()
         {
@@ -28,6 +28,6 @@ namespace DLL
         }
 
         public string TextFile { get { return textFile; } set {  textFile = value; } }
-        public Bitmap ImageFile { get { return imageFile; } set {  imageFile = value; } }
+        public byte[] ImageFile { get { return imageFile; } set {  imageFile = value; } }
     }
 }
