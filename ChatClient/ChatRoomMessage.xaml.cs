@@ -17,6 +17,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Threading;
+using Microsoft.Win32;
+using System.Drawing;
+using System.IO;
+using Path = System.IO.Path;
 
 namespace ChatClient
 {
@@ -51,11 +55,11 @@ namespace ChatClient
         {
             try
             {
-                string chatMessages = foob.PrintMessages(chatRoomName);
+                List<Message> chatMessages = foob.GetMessages(chatRoomName);
 
                 Dispatcher.Invoke(() =>
                 {
-                    ChatBox.Text = chatMessages;
+                    displayMessages(chatMessages);
                 });
             }
             catch (Exception ex)
@@ -75,10 +79,9 @@ namespace ChatClient
             string sentMessage = MessageBox.Text.ToString();
 
             await Task.Run(() => foob.AddMessage(sentMessage, chatRoomName, username));
-            string chatMessages = await Task.Run(() => foob.PrintMessages(chatRoomName));
+            List<Message> chatMessages = await Task.Run(() => foob.GetMessages(chatRoomName));
 
-            ChatBox.Text = chatMessages;
-            ChatBox.Visibility = Visibility.Visible;
+            displayMessages(chatMessages);
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
@@ -86,6 +89,78 @@ namespace ChatClient
             foob.RemoveUser(username);
             NavigationService.Navigate(new LoginPage());
             
+        }
+
+        private async void uploadFile_Click(object sender, RoutedEventArgs e)
+        {
+            var fileOpen = new OpenFileDialog();
+            fileOpen.Filter = "TXT Files(*.txt;)|*.txt|Image Files(*.jpg;*.jpeg)|*.jpg;*.jpeg;";
+            string textFile;
+
+            bool? res = fileOpen.ShowDialog();
+            if(res.HasValue && res.Value)
+            {
+                string ext = Path.GetExtension(fileOpen.FileName);
+
+                if (ext == ".txt")
+                {
+                    System.IO.StreamReader sr = new System.IO.StreamReader(fileOpen.FileName);
+                    textFile = sr.ReadToEnd();
+                    await Task.Run(() => foob.AddTextFile(fileOpen.SafeFileName, chatRoomName, username, textFile));
+                } else
+                {
+                    Bitmap img = new Bitmap(fileOpen.FileName);
+                    MemoryStream ms = new MemoryStream();
+                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    byte[] imgbytes = ms.ToArray();
+                    await Task.Run(() => foob.AddImageFile(fileOpen.SafeFileName, chatRoomName, username, imgbytes));
+                }
+            }
+        }
+
+        private void displayMessages(List<Message> messages)
+        {
+            MessageList.Items.Clear();
+            MessageList.DisplayMemberPath = "MessageText";
+
+            foreach (Message message in messages) { 
+                MessageList.Items.Add(message);
+            }
+        }
+
+        private void MessageList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Message m = (MessageList.SelectedItem as Message);
+
+            if (m != null && m.TextFile != null)
+            {
+                var fileSave = new SaveFileDialog();
+                fileSave.Filter = "TXT Files(*.txt;)|*.txt;";
+
+                bool? res = fileSave.ShowDialog();
+                if (res.HasValue && res.Value)
+                {
+                    using (StreamWriter wr = new StreamWriter(fileSave.FileName))
+                    {
+                        wr.Write(m.TextFile);
+                    }
+                }
+            }
+            else if (m != null && m.ImageFile != null)
+            {
+                var fileSave = new SaveFileDialog();
+                fileSave.Filter = "Image Files(*.jpg;*.jpeg)|*.jpg;*.jpeg;";
+
+                bool? res = fileSave.ShowDialog();
+                if (res.HasValue && res.Value)
+                {
+                    using (var ms = new MemoryStream(m.ImageFile))
+                    {
+                        Bitmap bmp = new Bitmap(ms);
+                        bmp.Save(fileSave.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    }
+                }
+            }
         }
     }
 }

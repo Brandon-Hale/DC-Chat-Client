@@ -16,3 +16,9 @@ C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\DLL\
 C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\DLL\obj\Debug\DLL.csproj.CoreCompileInputs.cache
 C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\DLL\obj\Debug\DLL.dll
 C:\Users\motch\Documents\SEM2_2023\DC(COMP3008)\Assignment_1\DC-Chat-Client\DLL\obj\Debug\DLL.pdb
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DLL\obj\Debug\DLL.csproj.AssemblyReference.cache
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DLL\obj\Debug\DLL.csproj.CoreCompileInputs.cache
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DLL\obj\Debug\DLL.dll
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DLL\obj\Debug\DLL.pdb
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DLL\bin\Debug\DLL.dll
+C:\Users\motch\Documents\GitHub\DC-Chat-Client\DLL\bin\Debug\DLL.pdb

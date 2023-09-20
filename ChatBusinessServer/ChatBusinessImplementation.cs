@@ -7,6 +7,7 @@ using System.ServiceModel;
 using ChatDatabaseServer;
 using System.Runtime.CompilerServices;
 using DLL;
+using System.Drawing;
 
 namespace ChatBusinessServer
 {
@@ -70,6 +71,18 @@ namespace ChatBusinessServer
             Log($"GetMessages Called with string: {sentMessage}");
 
             foob.AddMessage(sentMessage, chatRoomName, username);
+        }
+
+        public void AddTextFile(string fileName, string chatRoomName, string username, string file)
+        {
+            Log($"AddTextFile Called with string: {fileName}");
+            foob.AddTextFile(fileName, chatRoomName, username, file);
+        }
+
+        public void AddImageFile(string fileName, string chatRoomName, string username, byte[] image)
+        {
+            Log($"AddImageFile Called with string: {fileName}");
+            foob.AddImageFile(fileName, chatRoomName, username, image);
         }
 
         public List<Message> GetMessages(string chatRoomName)

@@ -12,10 +12,12 @@
         <Button Name="backButton" Content="Go Back" HorizontalAlignment="Left" Margin="10,405,0,0" VerticalAlignment="Top" Height="35" Width="70" Click="backButton_Click"/>
         <TextBlock Name="chatRoomMessages" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Chat Room Messages" VerticalAlignment="Top" FontSize="15"/>
         <TextBox Name="MessageBox" HorizontalAlignment="Left" Margin="565,386,0,0" TextWrapping="Wrap" Text="Type here..." VerticalAlignment="Top" Width="220" Height="54"/>
-        <TextBlock Name="ChatBox" HorizontalAlignment="Left" Margin="461,52,0,0" TextWrapping="NoWrap" Text="Chat Messages..." VerticalAlignment="Top" Height="308" Width="324"/>
         <TextBlock Name="ChatTitle" HorizontalAlignment="Left" Margin="565,13,0,0" TextWrapping="Wrap" Text="Chat Messages:" VerticalAlignment="Top" Height="35" Width="225" FontSize="18"/>
         <Button Name="SendButton" Content="Send" HorizontalAlignment="Left" Margin="461,386,0,0" VerticalAlignment="Top" Height="54" Width="86" Click="SendButton_Click"/>
         <Button Name="LogoutButton" Content="Logout" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" Height="35" Width="70" Click="logoutButton_Click"/>
+        <Button x:Name="uploadFile" Content="File" HorizontalAlignment="Left" Height="18" Margin="748,420,0,0" VerticalAlignment="Top" Width="36" Click="uploadFile_Click"/>
+        <Button x:Name="downloadButton" Content="Download" HorizontalAlignment="Left" Height="24" Margin="331,52,0,0" VerticalAlignment="Top" Width="69" Visibility="Hidden"/>
+        <ListBox x:Name="MessageList" HorizontalAlignment="Left" Height="308" Margin="461,52,0,0" VerticalAlignment="Top" Width="323" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="MessageList_SelectionChanged"/>
 
 
     </Grid>

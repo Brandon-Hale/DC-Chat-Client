@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
 using DLL;
+using System.Drawing;
 
 namespace ChatBusinessServer
 {
@@ -26,6 +27,12 @@ namespace ChatBusinessServer
         //chatRoom
         [OperationContract]
         void AddMessage(string sentMessage, string chatRoomName, string username);
+
+        [OperationContract]
+        void AddTextFile(string fileName, string chatRoomName, string username, string file);
+
+        [OperationContract]
+        void AddImageFile(string fileName, string chatRoomName, string username, byte[] image);
 
         [OperationContract]
         List<Message> GetMessages(string chatRoomName);
